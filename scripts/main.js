@@ -56,7 +56,7 @@ function toggleInvestments(clicked) {
 //Hides loading div when page loaded.
 window.onload = function() {
     document.getElementById("loading").style.display = "none";
-    console.log("Page Loaded");
+    console.log("ALL Content Loaded");
 }   
 
 

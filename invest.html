@@ -62,35 +62,40 @@
                 <div class="container">
                     <div class="box">
                         <h1 class="title" style="color: black;">Your Wallet</h1>
-                        <p id="walletAddress"><strong>Wallet Address:</strong> <i>loading...</i></p>
-                        <p id="walletEthBalance"><strong>ETH Balance:</strong> <i>loading...</i></p>
-                        <p id="walletTokenBalance"><strong>SNIP Token Balance</strong> <i>loading...</i></p>
+                        <p><strong>Wallet Address:</strong> <i id="walletAddress">loading...</i></p>
+                        <p><strong>ETH Balance:</strong> <i id="walletEthBalance">loading...</i></p>
+                        <p><strong>SNIP Token Balance</strong> <i id="walletTokenBalance">loading...</i></p>
                         <br>
                         <button onclick="toggleModal();" class="button is-text">Transfer Tokens</button>
                     </div>
                     <div class="box">
                         <h1 class="title" style="color: black;">Exchange Tokens</h1>
-                        <p><strong>Buy Price:</strong> <i>Loading...</i></p>
-                        <div class="field has-addons">
-                            <div class="control">
-                                <input class="input is-medium is-dark" type="text" placeholder="1">
+                        <div class="media">
+                            <div class="media-content">
+                                <p><strong>Buy Price:</strong> <i>Loading...</i></p>
+                                <div class="field has-addons">
+                                    <div class="control">
+                                        <input class="input is-medium is-dark" type="text" placeholder="1">
+                                    </div>
+                                    <div class="control">
+                                        <button class="button is-medium is-dark">Buy</button>
+                                    </div>
+                                </div>
+                                <p id="buyCalculate"></p>
                             </div>
-                            <div class="control">
-                                <button class="button is-medium is-dark">Buy</button>
+                            <div class="media-content">
+                                <p><strong>Sell Price:</strong> <i>Loading...</i></p>
+                                <div class="field has-addons">
+                                    <div class="control">
+                                        <input class="input is-medium is-dark" type="text" placeholder="1">
+                                    </div>
+                                    <div class="control">
+                                        <button class="button is-medium is-dark">Sell</button>
+                                    </div>
+                                </div>
+                                <p id="sellCalculate"></p>
                             </div>
                         </div>
-                        <p id="buyCalculate"></p>
-                        <br>
-                        <p><strong>Sell Price:</strong> <i>Loading...</i></p>
-                        <div class="field has-addons">
-                            <div class="control">
-                                <input class="input is-medium is-dark" type="text" placeholder="1">
-                            </div>
-                            <div class="control">
-                                <button class="button is-medium is-dark">Sell</button>
-                            </div>
-                        </div>
-                        <p id="sellCalculate"></p>
                         <br><br>
                     </div>
                     <div class="box">
@@ -101,11 +106,11 @@
                     <div class="box">
                         <h1 class="title" style="color: black;">Investments</h1>
                         <!-- <div class="tabs is-large is-boxed is-toggle is-fullwidth">
-                            <ul>
-                                <li id="investmentsActive" class="is-active"><a onclick="toggleInvestments('active');">Active</a></li>
-                                <li id="investmentsHistory"><a onclick="toggleInvestments('history');">History</a></li>
-                            </ul>
-                        </div> -->
+<ul>
+<li id="investmentsActive" class="is-active"><a onclick="toggleInvestments('active');">Active</a></li>
+<li id="investmentsHistory"><a onclick="toggleInvestments('history');">History</a></li>
+</ul>
+</div> -->
                         <div class="field has-addons">
                             <div class="control" style="margin-left: auto">
                                 <button onclick="toggleInvestments('active')" id="investmentsActive" class="button is-large is-dark">Active</button>
@@ -131,18 +136,20 @@
                 <div class="box">
                     <h1 class="title">Transfer Tokens</h1>
                     <p class="subtitle">You can transfer your tokens to another ethereum wallet here.</p>
-                    <p><strong>Your SNIP Tokens:</strong> <i>Loading...</i></p>
+                    <p><strong>Your SNIP Tokens:</strong> <i id="transferTokenBalance">Loading...</i></p>
                     <div class="field">
                         <div class="control">
-                            <input class="input is-medium is-dark is-fullwidth" type="number" placeholder="Amount">
+                            <input id="transferAmount" class="input is-medium is-dark is-fullwidth" type="number" placeholder="Amount">
                         </div>
                         <br>
                         <div class="control">
-                            <input class="input is-medium is-dark is-fullwidth" type="text" placeholder="Ethereum Address">
+                            <input id="transferAddress" class="input is-medium is-dark is-fullwidth" type="input" placeholder="Ethereum Address">
                         </div>
                         <br>
+                        <p class="has-text-danger">WARNING: Make sure you input correct information, it is not possible cancel or refund any transaction that gets confirmed on the blockchain!</p>
+                        <br>
                         <div class="control">
-                            <button class="button is-large is-dark is-fullwidth">Send</button>
+                            <button class="button is-large is-dark is-fullwidth" onclick="transferTokens()">Send</button>
                         </div>
                     </div>
                 </div>
