@@ -26,7 +26,11 @@ function detectIE() {
 }
 window.addEventListener("load", function() {
     var version = detectIE();
-
+    
+    if (web3 != true) {
+        noMetaMask();
+    }
+    
     if (version === false) {
         console.log("Browser OK");
     } else if (version >= 12) {
