@@ -722,6 +722,10 @@ window.addEventListener("load", function() {
     if(!web3.isConnected()) {
         noMetaMask();
     } else {
+        web3 (coinbase, function(error, result) {
+            if (error)
+               noMetaMask();
+        });
         console.log("DAPP Loaded");
         loadWallet();
         loadExchange();
